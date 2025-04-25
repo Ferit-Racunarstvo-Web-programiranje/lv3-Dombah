@@ -8,7 +8,7 @@
 		<meta name="author" content="Domagoj Lešković">
 		<!--dodati meta tag bitan za stranicu-->
 		<!--dodati link za css dokumente -->
-		<link rel="stylesheet" href="styles.css">
+		<link rel="stylesheet" href="style.css">
         <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 		<title>Vremenska prognoza</title>
 	</head>
@@ -17,14 +17,28 @@
 		<h1>Dobrodošli na vremenski portal</h1>
 		</header>
 		<h1>Vremenski Podaci</h1>
+		<nav aria-labelledby="primarna-navigacija"> <!-- dodati obilježja za ARIA-->
+			<ul>
+				<li class = "dropdown">
+					<p class = "dropbtn">Dropdown</p>
+					<section class = "dropdown-content">
+						<a href="./index.html">Pocetna</a>
+						<a href="slike">Slike</a>
+						<a href="./grafikon.html">Grafikon</a>
+					</section>
+				</li>
+			</ul>
+		</nav>
 		<main id="main-content">
             <aside id="kosarica">
                 <section id="kosarica-content">
-                    <h2>Moja kosarica</h2>
-                    <ul id="lista-kosarice">
-                    <!-- Dinamicki popunjeno -->
-                    </ul>
-                    <button id="potvrdi-kosaricu">Potvrdi odabir</button>
+                    <button id="toggle-kosarica">🛒 Moja košarica</button>
+                    <section id="kosarica-lista">
+                        <ul id="lista-kosarice">
+                            <!-- Dinamicki popunjeno -->
+                        </ul>
+                        <button id="potvrdi-kosaricu">Potvrdi odabir</button>
+                    </section>
                 </section>
             </aside>
             <table id="vrijeme-tablica">
@@ -49,14 +63,18 @@
                         <option value="Summer">Summer</option>
                         <option value="Autumn">Autumn</option>
                         <option value="Winter">Winter</option>  
-                    </select>                     
-                    <input type="number" id="filter-temperature" placeholder="Temperatura od">
-                    <input type="radio" id="inland" name="location" value="inland">
-                    <label for="inland">Inland</label>
-                    <input type="radio" id="mountain" name="location" value="mountain">
-                    <label for="mountain">Montain</label>
-                    <input type="radio" id="coastal" name="location" value="coastal">
-                    <label for="coastal">Coastal</label>
+                    </select>           
+                    <input type="number" id="filter-temperature" placeholder="Temperatura od">          
+                    <section id="filteri-sezona">
+                        <input type="radio" id="none" name="location" value="none">
+                        <label for="none">None</label>
+                        <input type="radio" id="inland" name="location" value="inland">
+                        <label for="inland">Inland</label>
+                        <input type="radio" id="mountain" name="location" value="mountain">
+                        <label for="mountain">Montain</label>
+                        <input type="radio" id="coastal" name="location" value="coastal">
+                        <label for="coastal">Coastal</label>
+                    </section>
                     <button id="primijeni-filtere">Filtriraj</button>
                 </div>
                 <table id="vrijeme-tablica2">
@@ -71,7 +89,7 @@
                             <th>Weather Type</th>
                         </tr>
                     <tbody>
-                        <button id="add-to-cart" onclick="addToCart()">Add to Cart</button>
+                        
                     </tbody>
                 </table>
 		</main>
